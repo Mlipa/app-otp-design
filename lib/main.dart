@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+
+import 'routes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('App with screen login - register - otp'),
-        ),
-      ),
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'App OTP',
+          routes: routes,
+          initialRoute: '/',
+        );
+      },
     );
   }
 }
